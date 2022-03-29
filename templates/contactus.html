@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: red;
+  color: white;
+}
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a  href="#home">Slideshow</a>
+  <a href="{{url_for('projects')}}">Projects</a>
+  <a href="{{url_for('blogs')}}">Blog</a>
+  <a class="active" href="{{url_for('contactus')}}">Feedback</a>
+</div>
+
+<div style="padding-left:16px">
+  <h1> DePronto Assigment Task 4 : Contact Us</h1>
+  
+<form action="">
+    <table>
+        <tr>
+            <td>
+                <label for="uname">Name</label>
+            </td>
+            <td>
+                <input type="text" id="username" name="username">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="date">Date</label>
+            </td>
+            <td>
+                <input type="date" id="date" name="date">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="title">Feedback Title</label>
+            </td>
+            <td>
+                <input type="text" id="title" name="title">
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="message">Message</label>
+            </td>
+            <td>
+                <input type="text" name="message" id="message">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Category</label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" id="cb1"> Promotional Mails
+                </label>
+                <label>
+                    <input type="checkbox" id="cb2"> Product Mails
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Gender</label>
+            </td>
+            <td>
+                <label>
+                    <input type="radio" value="m" id ="gender" name="gender"> Male</label>
+                    <label>
+                    <input value="f" type="radio" id ="gender" name="gender"> Female</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+        </td>
+        </tr>
+    </table>
+    <button type="button" onclick="onClick()">Submit</button>
+</form>
+<script>
+    function onClick() {
+  
+var name = document.getElementById("username").value;
+console.log("Name = "+name);
+
+var date = document.getElementById("date").value;
+console.log("Date = "+date);
+var title = document.getElementById("title").value;
+console.log("Feedback Title = "+title);
+var message = document.getElementById("message").value;
+console.log("Message = "+message);
+var promomail = document.getElementById("cb1").value;
+console.log("Promotional Mail = "+promomail);
+
+if (promomail == 'on') {
+  promomail = 'Selected'
+};
+
+
+var prodcmail = document.getElementById("cb2").value;
+console.log("Product Mail = "+prodcmail);
+
+if (prodcmail == 'on') {
+    prodcmail = 'Selected'
+};
+var Gender = document.getElementById("gender").value;
+
+if (Gender == 'f') {
+    Gender = 'Female'
+};
+
+if (Gender == 'm') {
+    Gender = 'Male'
+};
+console.log("Gender = "+Gender);
+
+
+}
+</script>
+</body>
+</html>
